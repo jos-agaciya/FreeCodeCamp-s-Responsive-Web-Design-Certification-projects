@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Book Inventory</title>
+    <style>
+      span {
+        display: inline-block;
+      }
+
+      /* --- Row Attribute Selectors (Tests 19-24) --- */
+      tr[class="read"] {
+        background-image: linear-gradient(to right, #d4edda, #ffffff);
+      }
+
+      tr[class="to-read"] {
+        background-image: linear-gradient(to right, #fff3cd, #ffffff);
+      }
+
+      tr[class="in-progress"] {
+        background-image: linear-gradient(to right, #d1ecf1, #ffffff);
+      }
+
+      /* --- Status Span Selectors (Tests 26-34) --- */
+      tr[class="to-read"] span[class="status"] {
+        border: 1px solid #856404;
+        background-image: linear-gradient(#ffeeba, #fff3cd);
+      }
+
+      tr[class="read"] span[class="status"] {
+        border: 1px solid #155724;
+        background-image: linear-gradient(#c3e6cb, #d4edda);
+      }
+
+      tr[class="in-progress"] span[class="status"] {
+        border: 1px solid #0c5460;
+        background-image: linear-gradient(#bee5eb, #d1ecf1);
+      }
+
+      /* --- Sizing for Status & Rate (Tests 35-38) --- */
+      span[class="status"],
+      span[class^="rate"] {
+        height: 25px;
+        width: 90px;
+        padding: 4px;
+        text-align: center;
+        line-height: 25px; /* Centers text vertically */
+      }
+
+      /* --- Rate Circles/Dots (Tests 39-45) --- */
+      span[class^="rate"] > span {
+        border: 1px solid #666;
+        border-radius: 50%;
+        margin: 2px;
+        height: 12px;
+        width: 12px;
+        background-color: #ddd;
+      }
+
+      /* --- Rating Logic (Tests 46-51) --- */
+
+      /* Rate One: Targets the first dot */
+      span[class~="one"] span:nth-child(1) {
+        background-image: linear-gradient(#ffcc00, #ff9900);
+      }
+
+      /* Rate Two: Targets the first and second dots */
+      span[class~="two"] span:nth-child(-n + 2) {
+        background-image: linear-gradient(#ffcc00, #ff9900);
+      }
+
+      /* Rate Three: Targets all three dots */
+      span[class~="three"] span {
+        background-image: linear-gradient(#ffcc00, #ff9900);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Book Inventory</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="read">
+          <td>The Great Gatsby</td>
+          <td>F. Scott Fitzgerald</td>
+          <td>Classic</td>
+          <td><span class="status">Read</span></td>
+          <td>
+            <span class="rate three"
+              ><span></span><span></span><span></span
+            ></span>
+          </td>
+        </tr>
+        <tr class="in-progress">
+          <td>Dune</td>
+          <td>Frank Herbert</td>
+          <td>Sci-Fi</td>
+          <td><span class="status">In Progress</span></td>
+          <td>
+            <span class="rate"><span></span><span></span><span></span></span>
+          </td>
+        </tr>
+        <tr class="to-read">
+          <td>1984</td>
+          <td>George Orwell</td>
+          <td>Dystopian</td>
+          <td><span class="status">To Read</span></td>
+          <td>
+            <span class="rate"><span></span><span></span><span></span></span>
+          </td>
+        </tr>
+        <tr class="read">
+          <td>The Hobbit</td>
+          <td>J.R.R. Tolkien</td>
+          <td>Fantasy</td>
+          <td><span class="status">Read</span></td>
+          <td>
+            <span class="rate two"
+              ><span></span><span></span><span></span
+            ></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

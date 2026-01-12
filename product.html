@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Landing Page</title>
+    <style>
+      /* General Setup */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding-top: 80px; /* Space for the fixed header */
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+
+      /* Header & Navbar (Tests 23 & 25) */
+      #header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 70px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      #header-img {
+        max-width: 200px;
+      }
+
+      #nav-bar {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      /* Form Styling */
+      #form {
+        margin: 40px 0;
+      }
+
+      #email {
+        padding: 10px;
+        width: 250px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+      }
+
+      #submit {
+        padding: 10px 20px;
+        background-color: #f1c40f;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      /* Flexbox Usage (Test 25) */
+      .flex-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .feat-box {
+        padding: 20px;
+        background: white;
+        border: 1px solid #ddd;
+      }
+
+      /* Media Query (Test 24) */
+      @media (max-width: 600px) {
+        #header {
+          flex-direction: column;
+          height: auto;
+          padding: 10px;
+        }
+
+        .flex-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #nav-bar {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="logo">
+        <img
+          id="header-img"
+          src="https://cdn.freecodecamp.org/testable-projects-fcc/images/product-landing-page-logo.png"
+          alt="Orbit Watches Logo"
+        />
+      </div>
+      <nav id="nav-bar">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#video-section">How it Works</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <h1>Timeless Precision</h1>
+        <form id="form" action="https://www.freecodecamp.org/email-submit">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+          <input type="submit" id="submit" value="Get Started" />
+        </form>
+      </section>
+
+      <section id="features">
+        <h2>Premium Features</h2>
+        <div class="flex-container">
+          <div class="feat-box">Hand-crafted Leather</div>
+          <div class="feat-box">Solar Powered</div>
+          <div class="feat-box">Water Resistant</div>
+        </div>
+      </section>
+
+      <section id="video-section">
+        <h2>Watch it in Action</h2>
+        <iframe
+          id="video"
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc"
+          title="Product Video"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </section>
+
+      <section id="pricing">
+        <h2>Pricing</h2>
+        <div class="price-tier">Orbit One - $199</div>
+      </section>
+    </main>
+  </body>
+</html>
